@@ -1,3 +1,8 @@
+> [!important]
+> The official `llama.cpp` package registry has moved to https://github.com/ggml-org/llama.cpp/pkgs/container/llama.cpp
+>
+> The old `ggerganov/llama.cpp` registry will be syncronized for compatibility, but it is recommended that you migrate your workflows to the new `ggml-org/llama.cpp` registry.
+
 # Github action to mirror docker images between ggml-org and ggerganov
 
 This script mirrors a set of tags from one repository to another. It is designed mirror WITHIN the same registry (ghcr.io in this case), by cross-mounting blobs. This prevents the need to download and re-upload the same data.
