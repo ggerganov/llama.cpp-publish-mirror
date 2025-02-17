@@ -108,6 +108,10 @@ def push_manifest(dest_repository: str, digest: str, data: str, token: str, src_
         layer_digest = layer.get("digest")
         print(f"    Attempting to cross-mount layer {layer_digest}")
         cross_mount_blob(dest_repository, src_cross_mount, layer_digest, token)
+    if 'config' in manifest_json:
+        config_digest = manifest_json['config']['digest']
+        print(f"    Attempting to cross-mount config {config_digest}")
+        cross_mount_blob(dest_repository, src_cross_mount, config_digest, token)
     media_type = manifest_json.get("mediaType", "application/vnd.oci.image.index.v1+json")
     req = PutRequest(url, data=data.encode('utf-8'))
     req.add_header('Authorization', f'Bearer {token}')
