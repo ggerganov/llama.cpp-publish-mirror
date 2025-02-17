@@ -6,9 +6,9 @@ name: Publish to mirror
 on:
   push:
   workflow_dispatch: # allows manual triggering
-  #schedule:
+  schedule:
     # Re-run every 15 minutes
-    #- cron: '*/15 * * * *'
+    - cron: '*/15 * * * *'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref && github.ref || github.run_id }}

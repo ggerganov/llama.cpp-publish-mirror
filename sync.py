@@ -13,7 +13,7 @@ REGISTRY_HOST = "ghcr.io"
 REGISTRY_SERVICE = "ghcr.io"
 
 SOURCE_REPO = "ggml-org/llama.cpp"
-TARGET_REPO = "ngxson/llama.cpp-test-mirror"
+TARGET_REPO = "ggerganov/llama.cpp"
 SYNC_TAGS = [
     'server', 'light', 'full',
     'server-intel', 'light-intel', 'full-intel',
@@ -167,7 +167,7 @@ def mirror_image(src_repo, src_ref, dest_repo, dest_tag, token_pull, token_push)
 
     return status, response_body
 
-for tag in SYNC_TAGS:    
+for tag in SYNC_TAGS:
     # get token for pushing
     push_username = os.environ.get('PUSH_USERNAME')
     if not push_username:
